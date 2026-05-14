@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Zealand Itinerary</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="itinerary-data.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:        #f5f2ec;
+      --cream-dark:   #ede8df;
+      --green:        #7a8c6e;
+      --green-light:  #e8f0e3;
+      --green-dark:   #2d3a22;
+      --text:         #3a3a3a;
+      --text-muted:   #888;
+      --border:       #d8d0c4;
+      --white:        #ffffff;
+      --warn-bg:      #fdf6e3;
+      --warn-border:  #e6c87a;
+      --warn-text:    #7a5c1e;
+      --brown:        #8b7355;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Georgia', 'Times New Roman', serif;
+    }
+
+    /* ── Stepper container ── */
+    #stepper {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+    }
+
+    /* ── Individual sections ── */
+    .step {
+      position: absolute;
+      inset: 0;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 56px 96px 80px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.45s ease;
+    }
+
+    .step.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .step-inner {
+      width: 100%;
+      max-width: 640px;
+    }
+
+    /* ── Hero section ── */
+    .hero-eyebrow {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 22px;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: clamp(38px, 6vw, 62px);
+      font-weight: 300;
+      color: var(--green-dark);
+      line-height: 1.15;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .hero-title em { font-style: italic; color: var(--green); }
+
+    .hero-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--green);
+      margin: 26px auto;
+    }
+
+    .hero-dates {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      color: var(--green);
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .stats {
+      display: flex;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .stat {
+      flex: 1;
+      padding: 20px 12px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-value {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--green-dark);
+      line-height: 1;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-top: 5px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    /* ── Overview section ── */
+    .section-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .bases-grid {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .base-chip {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 18px;
+      flex: 1;
+      min-width: 110px;
+      text-align: center;
+    }
+
+    .base-chip-name {
+      font-size: 15px;
+      font-weight: bold;
+      color: var(--green-dark);
+    }
+
+    .base-chip-sub {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: var(--green);
+      margin-top: 2px;
+    }
+
+    .base-chip-dates {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+
+    .places-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .place-tag {
+      background: var(--green-light);
+      border: 1px solid #c8d4be;
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 13px;
+      color: var(--green-dark);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .place-tag-day {
+      background: var(--green);
+      color: white;
+      border-radius: 10px;
+      padding: 1px 7px;
+      font-size: 10px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 600;
+    }
+
+    /* ── Day sections ── */
+    .day-eyebrow {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .day-title {
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: bold;
+      color: var(--green-dark);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .day-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .overnight-badge {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: var(--green);
+      background: var(--green-light);
+      border: 1px solid #c8d4be;
+      border-radius: 12px;
+      padding: 3px 10px;
+    }
+
+    .tag {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      padding: 3px 10px;
+      border-radius: 12px;
+      background: var(--cream-dark);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+
+    /* ── Schedule ── */
+    .schedule { display: flex; flex-direction: column; gap: 12px; }
+
+    .schedule-row {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .s-time {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--green);
+      white-space: nowrap;
+      min-width: 74px;
+      padding-top: 2px;
+    }
+
+    .s-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--border);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    .s-activity {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+    .activity-link {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 5px;
+      color: var(--green);
+      vertical-align: middle;
+      transition: color 0.15s;
+      text-decoration: none;
+    }
+    .activity-link:hover {
+      color: var(--green-dark);
+    }
+
+    .day-note {
+      margin-top: 20px;
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: var(--warn-text);
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── Nav arrows ── */
+    .nav-btn {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 50;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--green-dark);
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, opacity 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      background: var(--green-light);
+      box-shadow: 0 4px 14px rgba(122,140,110,0.2);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.22;
+      cursor: default;
+    }
+
+    #nav-prev { left: 20px; }
+    #nav-next { right: 20px; }
+
+    /* ── Progress ── */
+    #progress {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 50;
+    }
+
+    .progress-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--border);
+      transition: background 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: var(--green);
+      transform: scale(1.35);
+    }
+
+    .progress-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    /* ── Keyboard hint ── */
+    #key-hint {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      color: var(--border);
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Map step overrides ── */
+    .step--map {
+      padding: 0;
+      display: block; /* remove flex centering so map fills full height */
+    }
+
+    .step--map .step-inner {
+      max-width: 100%;
+      height: 100%;
+      padding: 0;
+    }
+
+    .accom-line {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
+    .accom-link {
+      color: #6b4fa0;
+      text-decoration: none;
+    }
+
+    .accom-link:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      .step { padding: 56px 56px 80px; }
+      #key-hint { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-btn { display: none; }
+      .step { padding: 48px 20px 72px; }
+      .schedule-row { flex-direction: column; gap: 3px; }
+      .s-time { min-width: unset; }
+      .s-dot { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="stepper"></div>
+
+<button class="nav-btn" id="nav-prev" aria-label="Previous">&#8592;</button>
+<button class="nav-btn" id="nav-next" aria-label="Next">&#8594;</button>
+
+<div id="progress">
+  <div class="progress-dots" id="dots"></div>
+  <span class="progress-label" id="progress-label"></span>
+</div>
+
+<div id="key-hint">← → arrow keys</div>
+
+<script>
+  // ── Build sections ──────────────────────────────────────────────
+  const sections = [];
+
+  // 0 — Hero
+  sections.push({
+    id: 'hero',
+    label: 'Overview',
+    html: `
+      <p class="hero-eyebrow">${ITINERARY.subtitle}</p>
+      <h1 class="hero-title">A Road Trip Through<br/><em>New Zealand</em></h1>
+      <div class="hero-divider"></div>
+      <p class="hero-dates">${ITINERARY.dates}</p>
+      <div class="stats">
+        ${ITINERARY.stats.map(s => `
+          <div class="stat">
+            <div class="stat-value">${s.value}</div>
+            <div class="stat-label">${s.label}</div>
+          </div>
+        `).join('')}
+      </div>
+    `
+  });
+
+  // 1 — Overview (bases + saved places + trending)
+  sections.push({
+    id: 'overview',
+    label: 'Overview',
+    html: `
+      <p class="section-label">Accommodation Bases</p>
+      <div class="bases-grid">
+        ${ITINERARY.bases.map(b => `
+          <div class="base-chip">
+            <div class="base-chip-name">${b.name}</div>
+            <div class="base-chip-sub">${b.nights} night${b.nights > 1 ? 's' : ''}</div>
+            <div class="base-chip-dates">${b.dates}</div>
+          </div>
+        `).join('')}
+      </div>
+      <p class="section-label">Your Saved Places</p>
+      <div class="places-grid">
+        ${ITINERARY.savedPlaces.map(p => `
+          <div class="place-tag">
+            ${p.name}
+            <span class="place-tag-day">Day ${p.day}</span>
+          </div>
+        `).join('')}
+      </div>
+      <p class="section-label" style="margin-top:24px;">📱 TikTok Trending Additions</p>
+      <div class="places-grid">
+        ${ITINERARY.trendingPlaces.map(p => `
+          <div class="place-tag" style="background:#fff8e8;border-color:#e6c87a;">
+            ${p.name}
+            <span class="place-tag-day" style="background:#b85c38;">Day ${p.day}</span>
+          </div>
+        `).join('')}
+      </div>
+    `
+  });
+
+  // 2 — Map
+  sections.push({
+    id: 'map',
+    label: 'Map',
+    className: 'step--map',
+    html: `<div id="map" style="width:100%;height:100vh;"></div>`
+  });
+
+  // 2–N — One section per day
+  ITINERARY.days.forEach(d => {
+    const overnight = d.overnight
+      ? `<span class="overnight-badge">Night: ${d.overnight}</span>`
+      : `<span class="overnight-badge" style="background:#fff3e8;border-color:#e6b87a;color:#7a5c1e;">Departure day</span>`;
+
+    const tags = d.tags.map(t => `<span class="tag">${t}</span>`).join('');
+
+    const base = ITINERARY.bases.find(b => b.days && b.days.includes(d.day));
+    const accomLine = (d.overnight && base && base.accomName && base.link)
+      ? `<div class="accom-line">Staying at: <a href="${base.link}" target="_blank" rel="noopener" class="accom-link">${base.accomName}</a></div>`
+      : '';
+
+    const schedule = d.schedule.map(s => `
+      <div class="schedule-row">
+        <span class="s-time">${s.time}</span>
+        <span class="s-dot"></span>
+        <span class="s-activity">${s.activity}${s.link ? `<a href="${s.link}" target="_blank" rel="noopener" class="activity-link" title="More info"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>` : ''}</span>
+      </div>
+    `).join('');
+
+    const note = d.notes
+      ? `<div class="day-note">${d.notes}</div>`
+      : '';
+
+    sections.push({
+      id: `day-${d.day}`,
+      label: `Day ${d.day}`,
+      html: `
+        <p class="day-eyebrow">Day ${d.day} &nbsp;·&nbsp; ${d.date} &nbsp;·&nbsp; ${d.weekday}</p>
+        <h2 class="day-title">${d.title}</h2>
+        <div class="day-meta">
+          ${overnight}
+          ${tags}
+        </div>
+        ${accomLine}
+        <div class="schedule">${schedule}</div>
+        ${note}
+      `
+    });
+  });
+
+  // ── Render DOM ──────────────────────────────────────────────────
+  const stepper = document.getElementById('stepper');
+  const dotsEl   = document.getElementById('dots');
+
+  sections.forEach((sec, i) => {
+    const step = document.createElement('div');
+    step.className = 'step' + (i === 0 ? ' active' : '') + (sec.className ? ' ' + sec.className : '');
+    step.id = `step-${i}`;
+    step.innerHTML = `<div class="step-inner">${sec.html}</div>`;
+    stepper.appendChild(step);
+
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.title = sec.label;
+    dot.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(dot);
+  });
+
+  // ── Navigation ──────────────────────────────────────────────────
+  let mapInstance = null;
+  let mapInitialised = false;
+  let current = 0;
+  const total  = sections.length;
+  const MAP_STEP_INDEX = sections.findIndex(s => s.id === 'map');
+  const prev   = document.getElementById('nav-prev');
+  const next   = document.getElementById('nav-next');
+  const label  = document.getElementById('progress-label');
+  const dots   = document.querySelectorAll('.dot');
+  const steps  = document.querySelectorAll('.step');
+
+  function initMap() {
+  mapInstance = L.map('map').setView([-44.5, 170.0], 7);
+  mapInitialised = true;
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 18
+  }).addTo(mapInstance);
+
+  const highlightDays = new Set(
+    ITINERARY.days
+      .filter(d => d.tags.some(t => t.includes('⭐')))
+      .map(d => d.day)
+  );
+
+  const routeCoords = [];
+
+  ITINERARY.days.forEach(day => {
+    let letterIndex = 0;
+    day.schedule.forEach(item => {
+      if (!item.coords) return;
+
+      const letter = String.fromCharCode(65 + letterIndex++);
+      const label = `${day.day}-${letter}`;
+      const color = highlightDays.has(day.day) ? '#b85c38' : '#2d3a22';
+      const placeName = item.activity.split(' — ')[0].trim();
+
+      const tagChips = day.tags
+        .filter(t => t.includes('📱') || t.includes('⭐'))
+        .map(t => {
+          const bg = t.includes('📱') ? '#fff8e8' : '#e8f0e3';
+          const border = t.includes('📱') ? '#e6c87a' : '#c8d4be';
+          const textColor = t.includes('📱') ? '#7a5c1e' : '#2d3a22';
+          return `<span style="background:${bg};border:1px solid ${border};border-radius:10px;padding:2px 8px;font-size:10px;color:${textColor};font-family:'Helvetica Neue',Arial,sans-serif;">${t}</span>`;
+        }).join('');
+
+      const linkHtml = item.link
+        ? `<a href="${item.link}" target="_blank" rel="noopener" style="display:block;margin-top:8px;font-size:11px;color:#7a8c6e;font-family:'Helvetica Neue',Arial,sans-serif;text-decoration:none;">More info ↗</a>`
+        : '';
+
+      const popupHtml = `
+        <div style="font-family:'Helvetica Neue',Arial,sans-serif;min-width:180px;max-width:220px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#7a8c6e;">Day ${day.day} · ${letter}</span>
+            <span style="font-size:10px;color:#888;">${item.time}</span>
+          </div>
+          <div style="font-size:14px;font-weight:bold;color:#2d3a22;margin-bottom:5px;font-family:'Georgia',serif;">${placeName}</div>
+          <div style="font-size:11px;color:#3a3a3a;line-height:1.55;${tagChips ? 'margin-bottom:7px;' : ''}">${item.activity}</div>
+          ${tagChips ? `<div style="display:flex;gap:4px;flex-wrap:wrap;">${tagChips}</div>` : ''}
+          ${linkHtml}
+        </div>`;
+
+      const icon = L.divIcon({
+        className: '',
+        html: `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer;">
+          <div style="background:${color};color:white;border-radius:10px;padding:3px 8px;font-size:10px;font-weight:700;font-family:'Helvetica Neue',Arial,sans-serif;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,0.25);">${label}</div>
+          <div style="width:2px;height:5px;background:${color};"></div>
+          <div style="width:5px;height:5px;background:${color};border-radius:50%;"></div>
+        </div>`,
+        iconAnchor: [22, 32],
+        popupAnchor: [0, -32]
+      });
+
+      const marker = L.marker([item.coords.lat, item.coords.lng], { icon })
+        .addTo(mapInstance)
+        .bindPopup(popupHtml, { maxWidth: 240 });
+
+      marker.on('mouseover', function () {
+        clearTimeout(this._popupTimer);
+        this.openPopup();
+      });
+      marker.on('mouseout', function () {
+        const self = this;
+        this._popupTimer = setTimeout(() => self.closePopup(), 200);
+      });
+      marker.on('popupopen', function () {
+        const el = this.getPopup().getElement();
+        if (el._hoverHandlersAttached) return;
+        el._hoverHandlersAttached = true;
+        el.addEventListener('mouseenter', () => clearTimeout(this._popupTimer));
+        el.addEventListener('mouseleave', () => this.closePopup());
+      });
+
+      routeCoords.push([item.coords.lat, item.coords.lng]);
+    });
+  });
+
+  L.polyline(routeCoords, {
+    color: '#7a8c6e',
+    weight: 2,
+    dashArray: '5, 5',
+    opacity: 0.6
+  }).addTo(mapInstance);
+
+  // Accommodation pins
+  function formatDaysLabel(days) {
+    const sorted = [...days].sort((a, b) => a - b);
+    const ranges = [];
+    let start = sorted[0], end = sorted[0];
+    for (let i = 1; i < sorted.length; i++) {
+      if (sorted[i] === end + 1) {
+        end = sorted[i];
+      } else {
+        ranges.push(start === end ? `${start}` : `${start}-${end}`);
+        start = end = sorted[i];
+      }
+    }
+    ranges.push(start === end ? `${start}` : `${start}-${end}`);
+    return 'D:' + ranges.join(',');
+  }
+
+  const mergedBases = [];
+  ITINERARY.bases.forEach(base => {
+    if (!base.coords) return;
+    const existing = mergedBases.find(
+      m => m.name === base.name && m.address === base.address
+    );
+    if (existing) {
+      existing.days = existing.days.concat(base.days);
+      existing.nights += base.nights;
+    } else {
+      mergedBases.push({ ...base, days: [...base.days] });
+    }
+  });
+
+  mergedBases.forEach(base => {
+    const label = formatDaysLabel(base.days);
+    const totalNights = base.nights;
+    const nightWord = totalNights === 1 ? 'night' : 'nights';
+
+    const houseSvg = `<svg width="11" height="11" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 10.5L12 4l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10.5z" fill="white"/><rect x="9" y="14" width="6" height="7" fill="#6b4fa0" rx="1"/></svg>`;
+
+    const accomIcon = L.divIcon({
+      className: '',
+      html: `<div style="display:flex;flex-direction:column;align-items:center;cursor:pointer;transform:translateX(-50%);">
+        <div style="background:#6b4fa0;color:white;border-radius:10px;padding:4px 9px;display:flex;align-items:center;gap:5px;box-shadow:0 2px 6px rgba(0,0,0,0.25);">
+          ${houseSvg}
+          <span style="font-size:9px;font-weight:700;font-family:'Helvetica Neue',Arial,sans-serif;white-space:nowrap;">${label}</span>
+        </div>
+        <div style="width:2px;height:5px;background:#6b4fa0;"></div>
+        <div style="width:5px;height:5px;background:#6b4fa0;border-radius:50%;"></div>
+      </div>`,
+      iconAnchor: [0, 32],
+      popupAnchor: [0, -32]
+    });
+
+    const accomLinkHtml = (base.accomName && base.link)
+      ? `<a href="${base.link}" target="_blank" rel="noopener" style="display:block;font-size:12px;color:#6b4fa0;text-decoration:none;margin-bottom:4px;font-weight:500;">${base.accomName}</a>`
+      : '';
+
+    const popupHtml = `
+      <div style="font-family:'Helvetica Neue',Arial,sans-serif;min-width:180px;max-width:220px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;">
+          <div style="background:#6b4fa0;border-radius:6px;padding:2px 6px;display:flex;align-items:center;gap:4px;">
+            ${houseSvg}
+            <span style="color:white;font-size:8px;font-weight:700;">${label}</span>
+          </div>
+          <span style="font-size:9px;color:#888;">${totalNights} ${nightWord}</span>
+        </div>
+        <div style="font-size:14px;font-weight:bold;color:#2d3a22;margin-bottom:3px;font-family:'Georgia',serif;">${base.name}</div>
+        ${accomLinkHtml}
+        <div style="font-size:10px;color:#888;line-height:1.4;">${base.address}</div>
+      </div>`;
+
+    const accomMarker = L.marker([base.coords.lat, base.coords.lng], { icon: accomIcon })
+      .addTo(mapInstance)
+      .bindPopup(popupHtml, { maxWidth: 240 });
+
+    accomMarker.on('mouseover', function () {
+      clearTimeout(this._popupTimer);
+      this.openPopup();
+    });
+    accomMarker.on('mouseout', function () {
+      const self = this;
+      this._popupTimer = setTimeout(() => self.closePopup(), 200);
+    });
+    accomMarker.on('popupopen', function () {
+      const el = this.getPopup().getElement();
+      if (el._hoverHandlersAttached) return;
+      el._hoverHandlersAttached = true;
+      el.addEventListener('mouseenter', () => clearTimeout(this._popupTimer));
+      el.addEventListener('mouseleave', () => this.closePopup());
+    });
+  });
+
+  const legend = L.control({ position: 'bottomleft' });
+  legend.onAdd = function () {
+    const div = L.DomUtil.create('div');
+    div.style.cssText = 'background:rgba(255,255,255,0.92);border:1px solid #d8d0c4;border-radius:8px;padding:8px 12px;font-family:"Helvetica Neue",Arial,sans-serif;font-size:11px;color:#3a3a3a;line-height:1;';
+    div.innerHTML =
+      '<span><span style="display:inline-block;width:8px;height:8px;background:#2d3a22;border-radius:2px;margin-right:5px;vertical-align:middle;"></span>Stop</span>' +
+      '&nbsp;&nbsp;' +
+      '<span><span style="display:inline-block;width:8px;height:8px;background:#b85c38;border-radius:2px;margin-right:5px;vertical-align:middle;"></span>Highlight</span>' +
+      '&nbsp;&nbsp;' +
+      '<span><span style="display:inline-block;width:8px;height:8px;background:#6b4fa0;border-radius:2px;margin-right:5px;vertical-align:middle;"></span>Stay</span>';
+    return div;
+  };
+  legend.addTo(mapInstance);
+}
+
+  function goTo(index) {
+    if (index < 0 || index >= total) return;
+    steps[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    steps[current].classList.add('active');
+    // Reset scroll on new section
+    steps[current].scrollTop = 0;
+    dots[current].classList.add('active');
+    prev.disabled = current === 0;
+    next.disabled = current === total - 1;
+    label.textContent = `${current + 1} / ${total}`;
+
+    if (current === MAP_STEP_INDEX) {
+      if (!mapInitialised) {
+        initMap();
+        setTimeout(() => mapInstance.invalidateSize(), 50);
+      } else {
+        setTimeout(() => mapInstance.invalidateSize(), 50);
+      }
+    }
+  }
+
+  prev.addEventListener('click', () => goTo(current - 1));
+  next.addEventListener('click', () => goTo(current + 1));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goTo(current + 1);
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   goTo(current - 1);
+  });
+
+  // Touch swipe support
+  let touchStartX = 0;
+  document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+  document.addEventListener('touchend', e => {
+    if (current === MAP_STEP_INDEX) return;
+    const delta = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 50) goTo(current + (delta > 0 ? 1 : -1));
+  });
+
+  // Init state
+  goTo(0);
+  document.title = `NZ Itinerary · ${ITINERARY.dates}`;
+</script>
+
+</body>
+</html>
