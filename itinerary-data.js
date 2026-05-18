@@ -17,11 +17,21 @@ const ITINERARY = {
   // Accommodation summary shown in the overview strip
   bases: [
     {
+      name:      "Lake Tekapo",
+      accomName: "Lake Tekapo Lodge",
+      nights:    1,
+      dates:     "May 23–24",
+      days:      [1],
+      address:   "Lake Tekapo, New Zealand",
+      coords:    { lat: -44.005, lng: 170.483 },
+      link:      "https://placeholder.com"
+    },
+    {
       name:      "Twizel",
       accomName: "Mackenzie Country Inn",
-      nights:    2,
-      dates:     "May 23–25",
-      days:      [1, 2],
+      nights:    1,
+      dates:     "May 24–25",
+      days:      [2],
       address:   "Twizel, New Zealand",
       coords:    { lat: -44.259, lng: 170.103 },
       link:      "https://placeholder.com"
@@ -100,36 +110,36 @@ const ITINERARY = {
       day: 1,
       date: "May 23",
       weekday: "Saturday",
-      title: "Christchurch → Lake Tekapo → Twizel",
-      overnight: "Twizel",
-      tags: ["Arrival Day", "~4.5 hr total drive", "📱 TikTok Trending"],
+      title: "Christchurch → Lake Tekapo",
+      overnight: "Lake Tekapo",
+      tags: ["Arrival Day", "~3 hr total drive", "📱 TikTok Trending", "🌌 Dark Sky Reserve"],
       schedule: [
         { time: "12:55 PM", activity: "Land at Christchurch Airport" },
         { time: "~2:00 PM", activity: "Collect luggage & pick up rental car" },
         { time: "~2:30 PM", activity: "Lunch in Christchurch, then depart south via SH1 → SH79" },
-        { time: "~4:30 PM", activity: "Lake Tekapo — Church of the Good Shepherd on the lakeshore, turquoise lake views, short lakefront walk (~1 hr stop)", link: "https://www.churchofthegoodshepherd.org.nz", coords: { lat: -44.005, lng: 170.483 } },
-        { time: "~5:30 PM", activity: "Drive to Twizel (~1 hr from Tekapo)" },
-        { time: "~6:30 PM", activity: "Arrive Twizel — check in & dinner" }
+        { time: "~4:30 PM", activity: "Arrive Lake Tekapo — check in, then Church of the Good Shepherd on the lakeshore, turquoise lake views, short lakefront walk", link: "https://www.churchofthegoodshepherd.org.nz", coords: { lat: -44.005, lng: 170.483 } },
+        { time: "~6:30 PM", activity: "Dinner in Tekapo village" },
+        { time: "~8:30 PM", activity: "Stargazing at the Mt John Observatory area — UNESCO Dark Sky Reserve, one of the best stargazing spots in the Southern Hemisphere", coords: { lat: -44.005, lng: 170.465 } }
       ],
-      notes: "📱 Lake Tekapo is one of the most viral NZ spots on TikTok — the Church of the Good Shepherd framed against the turquoise lake is unmissable. Also a UNESCO Dark Sky Reserve if skies are clear tonight."
+      notes: "📱 Lake Tekapo is one of the most viral NZ spots on TikTok — the Church of the Good Shepherd framed against the turquoise lake is unmissable. Staying the night unlocks the Dark Sky Reserve stargazing — late May skies are long and dark. Check the weather forecast; clear skies are magic here."
     },
     {
       day: 2,
       date: "May 24",
       weekday: "Sunday",
-      title: "Lake Pukaki Sunrise + Mt Cook",
+      title: "Lake Tekapo → Lake Pukaki → Mt Cook",
       overnight: "Twizel",
-      tags: ["⭐ Highlight", "Early start for sunrise", "⚠️ Hooker Valley Closed"],
+      tags: ["⭐ Highlight", "Scenic Drive", "⚠️ Hooker Valley Closed"],
       schedule: [
-        { time: "~7:00 AM", activity: "Drive to Lake Pukaki eastern shore (~15 min) — sunrise at ~7:30 AM with Mt Cook backdrop", coords: { lat: -44.022, lng: 170.153 } },
-        { time: "~9:00 AM", activity: "Return to Twizel for breakfast" },
-        { time: "9:30 AM", activity: "Drive to Aoraki/Mt Cook National Park (~1 hr)" },
-        { time: "~10:30 AM", activity: "Tasman Glacier Lake — easy 20-min walk to a viewpoint where icebergs float in a milky-blue glacial lake. Flat path, jaw-dropping.", link: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/tracks/tasman-glacier-view-track/", coords: { lat: -43.795, lng: 170.105 } },
-        { time: "~11:15 AM", activity: "Lunch at The Hermitage café or Mt Cook Village" },
-        { time: "~12:15 PM",  activity: "Explore Mt Cook Village — grab a coffee at The Hermitage with a direct face-on view of Aoraki, browse the Alpine Visitor Centre" },
-        { time: "~2:00 PM",  activity: "Drive back to Twizel, dinner" }
+        { time: "9:30 AM",   activity: "Relaxed breakfast in Tekapo, check out" },
+        { time: "~10:15 AM", activity: "Drive to Lake Pukaki eastern shore (~45 min) — turquoise glacial lake with Aoraki/Mt Cook backdrop, one of NZ's most iconic views", coords: { lat: -44.022, lng: 170.153 } },
+        { time: "~11:00 AM", activity: "Drive to Aoraki/Mt Cook National Park (~1 hr from Pukaki)" },
+        { time: "~12:00 PM", activity: "Tasman Glacier Lake — easy 20-min walk to a viewpoint where icebergs float in a milky-blue glacial lake. Flat path, jaw-dropping.", link: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/tracks/tasman-glacier-view-track/", coords: { lat: -43.795, lng: 170.105 } },
+        { time: "~12:45 PM", activity: "Lunch at The Hermitage café or Mt Cook Village" },
+        { time: "~1:45 PM",  activity: "Explore Mt Cook Village — coffee at The Hermitage with a direct face-on view of Aoraki, browse the Alpine Visitor Centre" },
+        { time: "~3:00 PM",  activity: "Drive to Twizel (~1 hr) — check in, dinner" }
       ],
-      notes: "⚠️ Hooker Valley Track is CLOSED until late July/August 2026 — replaced with two easy walks: Tasman Glacier Lake (icebergs, flat path) and Kea Point (glacier lake platform, relaxed 1.5 hrs). Both are beautiful and low effort. One early morning exception — the Lake Pukaki sunrise is worth it."
+      notes: "⚠️ Hooker Valley Track is CLOSED until late July/August 2026 — replaced with two easy walks: Tasman Glacier Lake (icebergs, flat path) and Kea Point (glacier lake platform, relaxed 1.5 hrs). Both are beautiful and low effort. Lake Pukaki is stunning at any time of day — the turquoise glacial colour doesn't depend on sunrise."
     },
     {
       day: 3,
