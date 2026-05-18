@@ -414,6 +414,36 @@
       display: block; /* remove flex centering so map fills full height */
     }
 
+    /* ── Map nav overlay (mobile) ── */
+    #map-nav {
+      display: none;
+      position: fixed;
+      bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      gap: 12px;
+      align-items: center;
+    }
+    body.map-active #map-nav { display: flex; }
+    .map-nav-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.92);
+      color: var(--green-dark);
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .map-nav-btn:active { background: var(--green-light); }
+
     .step--map .step-inner {
       max-width: 100%;
       height: 100%;
@@ -454,6 +484,10 @@
 
 <button class="nav-btn" id="nav-prev" aria-label="Previous">&#8592;</button>
 <button class="nav-btn" id="nav-next" aria-label="Next">&#8594;</button>
+<div id="map-nav">
+  <button class="map-nav-btn" id="map-prev" aria-label="Previous">&#8592;</button>
+  <button class="map-nav-btn" id="map-next" aria-label="Next">&#8594;</button>
+</div>
 
 <div id="progress">
   <div class="progress-dots" id="dots"></div>
@@ -816,17 +850,22 @@
     label.textContent = `${current + 1} / ${total}`;
 
     if (current === MAP_STEP_INDEX) {
+      document.body.classList.add('map-active');
       if (!mapInitialised) {
         initMap();
         setTimeout(() => mapInstance.invalidateSize(), 50);
       } else {
         setTimeout(() => mapInstance.invalidateSize(), 50);
       }
+    } else {
+      document.body.classList.remove('map-active');
     }
   }
 
   prev.addEventListener('click', () => goTo(current - 1));
   next.addEventListener('click', () => goTo(current + 1));
+  document.getElementById('map-prev').addEventListener('click', () => goTo(current - 1));
+  document.getElementById('map-next').addEventListener('click', () => goTo(current + 1));
 
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goTo(current + 1);
