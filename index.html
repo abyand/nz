@@ -703,6 +703,11 @@
         .addTo(mapInstance)
         .bindPopup(popupHtml, { maxWidth: 240 });
 
+      marker.on('click', function (e) {
+        L.DomEvent.stopPropagation(e);
+        clearTimeout(this._popupTimer);
+        this.openPopup();
+      });
       marker.on('mouseover', function () {
         clearTimeout(this._popupTimer);
         this.openPopup();
@@ -804,6 +809,11 @@
       .addTo(mapInstance)
       .bindPopup(popupHtml, { maxWidth: 240 });
 
+    accomMarker.on('click', function (e) {
+      L.DomEvent.stopPropagation(e);
+      clearTimeout(this._popupTimer);
+      this.openPopup();
+    });
     accomMarker.on('mouseover', function () {
       clearTimeout(this._popupTimer);
       this.openPopup();
