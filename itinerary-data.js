@@ -171,8 +171,10 @@ const ITINERARY = {
       overnight: "Queenstown",
       tags: ["Full Day", "Hike + Swimming Hole", "📱 TikTok Trending"],
       schedule: [
-        { time: "9:30 AM", activity: "Check out of Wanaka — luggage in car, depart toward Makarora via SH6 (~1 hr)" },
-        { time: "~10:30 AM", activity: "Blue Pools, Makarora — swing bridge over glacier-blue water, 1.5 km return walk (~1–1.5 hrs)", link: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/mount-aspiring-national-park/things-to-do/tracks/blue-pools-track/", coords: { lat: -44.213, lng: 169.249 } },
+        { time: "9:30 AM", activity: "Check out of Wanaka — luggage in car, depart toward Lake Hāwea via SH6" },
+        { time: "~9:45 AM", activity: "Lake Hāwea — The Wall viewpoint, lakeside walk (~1 hr). On the route north to Makarora.", coords: { lat: -44.512, lng: 169.272 } },
+        { time: "~10:45 AM", activity: "Continue to Makarora (~45 min)" },
+        { time: "~11:30 AM", activity: "Blue Pools, Makarora — swing bridge over glacier-blue water, 1.5 km return walk (~1–1.5 hrs)", link: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/mount-aspiring-national-park/things-to-do/tracks/blue-pools-track/", coords: { lat: -44.213, lng: 169.249 } },
         { time: "~12:00 PM",  activity: "Drive to Raspberry Creek carpark for Rob Roy (~30 min)" },
         { time: "~12:30 PM",  activity: "Rob Roy Glacier Track — 10 km return, ~3–3.5 hrs, easy-to-moderate. Mostly flat valley floor walk to a hanging glacier with waterfalls. Well-formed track.", link: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/otago/places/mount-aspiring-national-park/things-to-do/tracks/rob-roy-track/", coords: { lat: -44.476, lng: 168.654 } },
         { time: "~4:00 PM",  activity: "Return to carpark — drive directly to Queenstown (~2 hrs via Crown Range Road)" },
@@ -184,38 +186,37 @@ const ITINERARY = {
       day: 5,
       date: "May 27",
       weekday: "Wednesday",
-      title: "Hari Raya Haji + Lake Hāwea Day Trip",
+      title: "Hari Raya Haji + Tennis + Onsen",
       overnight: "Queenstown",
-      tags: ["🌙 Hari Raya Haji", "Day Trip"],
+      tags: ["🌙 Hari Raya Haji", "Book Onsen in advance"],
       schedule: [
-        { time: "Morning",    activity: "Eid al-Adha prayer — at hotel or nearest prayer space in Queenstown" },
-        { time: "9:30 AM",   activity: "Drive to Lake Hāwea (~45 min from Queenstown via SH6)" },
-        { time: "~10:15 AM", activity: "Lake Hāwea — The Wall viewpoint, lakeside walk (~1.5 hrs)", coords: { lat: -44.512, lng: 169.272 } },
-        { time: "~11:45 AM", activity: "Drive back to Queenstown (~45 min)" },
-        { time: "~12:30 PM", activity: "Lunch in Queenstown — celebrate Hari Raya Haji 🎉" },
-        { time: "Afternoon", activity: "Queenstown waterfront, explore town", coords: { lat: -45.031, lng: 168.662 } },
-        { time: "~3:30 PM",  activity: "Patagonia Chocolates — artisan ice cream & hot chocolate on the waterfront. A Queenstown institution.", link: "https://www.patagoniaicecream.co.nz", coords: { lat: -45.031, lng: 168.661 } },
-        { time: "~5:00 PM",  activity: "Fergburger — expect a queue, go between 2–4 PM to avoid the worst of it", coords: { lat: -45.030, lng: 168.661 } }
+        { time: "Morning",   activity: "Eid al-Adha prayer — at hotel or nearest prayer space in Queenstown" },
+        { time: "9:30 AM",  activity: "Tennis court stop (~1.5 km southwest of town centre)", coords: { lat: -45.0374, lng: 168.6446 } },
+        { time: "~11:00 AM", activity: "Queenstown Tennis Club — 4 hard courts in Queenstown Gardens, mountain & lake views", coords: { lat: -45.040, lng: 168.663 } },
+        { time: "~12:30 PM", activity: "Light snack before Onsen" },
+        { time: "1:00 PM",   activity: "Onsen Hot Pools at Arthurs Point (~10 min from town) — private cedar hot tub, mountain & gorge views ⭐ check availability for this slot", link: "https://www.onsen.co.nz", coords: { lat: -45.011, lng: 168.716 } },
+        { time: "~2:15 PM",  activity: "Queenstown waterfront stroll, explore town", coords: { lat: -45.031, lng: 168.662 } },
+        { time: "~3:30 PM",  activity: "Patagonia Chocolates — artisan ice cream & hot chocolate on the waterfront", link: "https://www.patagoniaicecream.co.nz", coords: { lat: -45.031, lng: 168.661 } },
+        { time: "~6:00 PM",  activity: "Hari Raya Haji dinner — celebrate at a halal-friendly restaurant in Queenstown 🎉" }
       ],
-      notes: "🌙 Hari Raya Haji (Eid al-Adha) — 27 May 2026. No mosque in Queenstown; pray at your hotel or find a quiet outdoor space. Halal food options nearby: Turkish restaurants in the Queenstown town centre."
+      notes: "🌙 Hari Raya Haji (Eid al-Adha) — 27 May 2026. No mosque in Queenstown; pray at your hotel or find a quiet outdoor space. Halal food options: Turkish restaurants in the Queenstown town centre. ⚠️ Check Onsen availability for 1 PM on May 27 at onsen.co.nz — the booked 6:15 PM slot was for May 28."
     },
     {
       day: 6,
       date: "May 28",
       weekday: "Thursday",
-      title: "Arrowtown + Tennis + Onsen",
+      title: "Arrowtown",
       overnight: "Queenstown",
-      tags: ["Autumn Colours", "📱 TikTok Trending", "Book Onsen in advance"],
+      tags: ["Autumn Colours", "📱 TikTok Trending"],
       schedule: [
-        { time: "9:30 AM", activity: "Drive to Arrowtown (~20 min from Queenstown) — peak autumn foliage in late May" },
+        { time: "9:30 AM",  activity: "Drive to Arrowtown (~20 min from Queenstown) — peak autumn foliage in late May" },
         { time: "~10:00 AM", activity: "Arrowtown: Arrow River walk, Chinese Settlement ruins, old stone main street — allow 2 hrs", link: "https://www.arrowtown.com", coords: { lat: -44.939, lng: 168.830 } },
-        { time: "~12:00 PM",  activity: "Lunch in Arrowtown (The Fork & Tap or Provisions café)" },
-        { time: "~1:00 PM",  activity: "Return to Queenstown — tennis court stop (~1.5 km southwest of town centre)", coords: { lat: -45.0374, lng: 168.6446 } },
-        { time: "~2:30 PM",  activity: "Queenstown Tennis Club — 4 hard courts in Queenstown Gardens, mountain & lake views", coords: { lat: -45.040, lng: 168.663 } },
-        { time: "~5:00 PM",  activity: "Freshen up, dinner in Queenstown" },
-        { time: "6:15 PM",   activity: "Onsen Hot Pools at Arthurs Point (~10 min from town) — private cedar hot tub, mountain views ⭐ booked slot", link: "https://www.onsen.co.nz", coords: { lat: -45.011, lng: 168.716 } }
+        { time: "~12:00 PM", activity: "Lunch in Arrowtown (The Fork & Tap or Provisions café)" },
+        { time: "~1:30 PM",  activity: "Return to Queenstown — afternoon free, explore town, lakefront" },
+        { time: "~3:30 PM",  activity: "Fergburger — expect a queue, go between 2–4 PM to avoid the worst of it", coords: { lat: -45.030, lng: 168.661 } },
+        { time: "~6:00 PM",  activity: "Dinner in Queenstown" }
       ],
-      notes: "⚠️ Book Onsen Hot Pools well in advance at onsen.co.nz — only a handful of private baths, fills up fast. Late May is the best time to visit Arrowtown — the autumn colours along the Arrow River are TikTok-famous and genuinely stunning."
+      notes: "Late May is the best time to visit Arrowtown — the autumn colours along the Arrow River are TikTok-famous and genuinely stunning."
     },
     {
       day: 7,
