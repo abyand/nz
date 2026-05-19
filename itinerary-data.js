@@ -194,12 +194,12 @@ const ITINERARY = {
         { time: "9:30 AM",  activity: "Tennis court stop (~1.5 km southwest of town centre)", coords: { lat: -45.0374, lng: 168.6446 } },
         { time: "~11:00 AM", activity: "Queenstown Tennis Club — 4 hard courts in Queenstown Gardens, mountain & lake views", coords: { lat: -45.040, lng: 168.663 } },
         { time: "~12:30 PM", activity: "Light snack before Onsen" },
-        { time: "1:00 PM",   activity: "Onsen Hot Pools at Arthurs Point (~10 min from town) — private cedar hot tub, mountain & gorge views ⭐ check availability for this slot", link: "https://www.onsen.co.nz", coords: { lat: -45.011, lng: 168.716 } },
+        { time: "1:00 PM",   activity: "Onsen Hot Pools at Arthurs Point (~10 min from town) — private cedar hot tub, mountain & gorge views ✅ Booked", link: "https://www.onsen.co.nz", coords: { lat: -45.011, lng: 168.716 } },
         { time: "~2:15 PM",  activity: "Queenstown waterfront stroll, explore town", coords: { lat: -45.031, lng: 168.662 } },
         { time: "~3:30 PM",  activity: "Patagonia Chocolates — artisan ice cream & hot chocolate on the waterfront", link: "https://www.patagoniaicecream.co.nz", coords: { lat: -45.031, lng: 168.661 } },
         { time: "~6:00 PM",  activity: "Hari Raya Haji dinner — celebrate at a halal-friendly restaurant in Queenstown 🎉" }
       ],
-      notes: "🌙 Hari Raya Haji (Eid al-Adha) — 27 May 2026. No mosque in Queenstown; pray at your hotel or find a quiet outdoor space. Halal food options: Turkish restaurants in the Queenstown town centre. ⚠️ Check Onsen availability for 1 PM on May 27 at onsen.co.nz — the booked 6:15 PM slot was for May 28."
+      notes: "🌙 Hari Raya Haji (Eid al-Adha) — 27 May 2026. No mosque in Queenstown; pray at your hotel or find a quiet outdoor space. Halal food options: Turkish restaurants in the Queenstown town centre. ✅ Onsen Hot Pools booked at 1 PM on May 27."
     },
     {
       day: 6,

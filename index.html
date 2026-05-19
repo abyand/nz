@@ -509,6 +509,58 @@
       <h1 class="hero-title">A Road Trip Through<br/><em>New Zealand</em></h1>
       <div class="hero-divider"></div>
       <p class="hero-dates">${ITINERARY.dates}</p>
+      <svg viewBox="0 0 300 105" width="270" height="95" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:20px auto 28px;overflow:visible" aria-label="Road trip car illustration">
+        <!-- Ground shadow -->
+        <ellipse cx="150" cy="100" rx="118" ry="5" fill="#d8d0c4" opacity="0.55"/>
+        <!-- Rear wheel -->
+        <circle cx="75" cy="88" r="16" fill="#2d3a22"/>
+        <circle cx="75" cy="88" r="9" fill="#8b7355"/>
+        <circle cx="75" cy="88" r="3.5" fill="#2d3a22"/>
+        <line x1="75" y1="80" x2="75" y2="96" stroke="#2d3a22" stroke-width="1.3"/>
+        <line x1="67" y1="88" x2="83" y2="88" stroke="#2d3a22" stroke-width="1.3"/>
+        <line x1="69.3" y1="82.3" x2="80.7" y2="93.7" stroke="#2d3a22" stroke-width="1.3"/>
+        <line x1="80.7" y1="82.3" x2="69.3" y2="93.7" stroke="#2d3a22" stroke-width="1.3"/>
+        <!-- Front wheel -->
+        <circle cx="225" cy="88" r="16" fill="#2d3a22"/>
+        <circle cx="225" cy="88" r="9" fill="#8b7355"/>
+        <circle cx="225" cy="88" r="3.5" fill="#2d3a22"/>
+        <line x1="225" y1="80" x2="225" y2="96" stroke="#2d3a22" stroke-width="1.3"/>
+        <line x1="217" y1="88" x2="233" y2="88" stroke="#2d3a22" stroke-width="1.3"/>
+        <line x1="219.3" y1="82.3" x2="230.7" y2="93.7" stroke="#2d3a22" stroke-width="1.3"/>
+        <line x1="230.7" y1="82.3" x2="219.3" y2="93.7" stroke="#2d3a22" stroke-width="1.3"/>
+        <!-- Car body with wheel arch cutouts -->
+        <path d="M 18 88 L 18 77 Q 20 69 30 66 L 52 62 L 62 46 Q 70 35 84 34 L 180 34 Q 196 34 210 44 L 236 60 L 260 65 Q 274 67 282 76 L 282 82 L 282 88 L 241 88 A 16 16 0 0 0 209 88 L 91 88 A 16 16 0 0 0 59 88 Z" fill="#7a8c6e"/>
+        <!-- Cabin roof darker overlay -->
+        <path d="M 63 53 L 67 45 Q 73 35 86 34 L 180 34 Q 194 34 207 44 L 232 53 Z" fill="#2d3a22"/>
+        <!-- Rear window -->
+        <path d="M 65 51 L 69 44 Q 75 37 87 36 L 106 36 L 106 51 Z" fill="#e8f0e3" opacity="0.88"/>
+        <!-- Centre window -->
+        <rect x="110" y="36" width="58" height="16" rx="1.5" fill="#e8f0e3" opacity="0.88"/>
+        <!-- Front window -->
+        <path d="M 172 36 L 205 36 Q 218 38 228 50 L 228 51 L 172 51 Z" fill="#e8f0e3" opacity="0.88"/>
+        <!-- Window pillars -->
+        <line x1="108" y1="35" x2="108" y2="53" stroke="#2d3a22" stroke-width="2"/>
+        <line x1="170" y1="35" x2="170" y2="53" stroke="#2d3a22" stroke-width="2"/>
+        <!-- Door lines -->
+        <line x1="108" y1="53" x2="108" y2="86" stroke="#2d3a22" stroke-width="1.2" opacity="0.28"/>
+        <line x1="170" y1="53" x2="170" y2="86" stroke="#2d3a22" stroke-width="1.2" opacity="0.28"/>
+        <!-- Door handles -->
+        <rect x="130" y="70" width="16" height="3" rx="1.5" fill="#2d3a22" opacity="0.32"/>
+        <rect x="190" y="70" width="16" height="3" rx="1.5" fill="#2d3a22" opacity="0.32"/>
+        <!-- Roof rack -->
+        <rect x="86" y="30" width="96" height="5" rx="2" fill="#8b7355"/>
+        <line x1="102" y1="30" x2="102" y2="35" stroke="#6b5540" stroke-width="1.5"/>
+        <line x1="126" y1="30" x2="126" y2="35" stroke="#6b5540" stroke-width="1.5"/>
+        <line x1="152" y1="30" x2="152" y2="35" stroke="#6b5540" stroke-width="1.5"/>
+        <line x1="170" y1="30" x2="170" y2="35" stroke="#6b5540" stroke-width="1.5"/>
+        <!-- Headlight (front = right) -->
+        <rect x="275" y="70" width="9" height="7" rx="2" fill="#f5f2ec" opacity="0.95"/>
+        <!-- Tail light (rear = left) -->
+        <rect x="16" y="72" width="8" height="6" rx="2" fill="#8b7355" opacity="0.82"/>
+        <!-- Bumpers -->
+        <rect x="275" y="79" width="11" height="8" rx="3" fill="#8b7355"/>
+        <rect x="14" y="79" width="11" height="8" rx="3" fill="#8b7355"/>
+      </svg>
       <div class="stats">
         ${ITINERARY.stats.map(s => `
           <div class="stat">
