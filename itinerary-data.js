@@ -137,7 +137,10 @@ const ITINERARY = {
         { time: "~12:00 PM", activity: "Tasman Glacier Lake — easy 20-min walk to a viewpoint where icebergs float in a milky-blue glacial lake. Flat path, jaw-dropping.", link: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/tracks/tasman-glacier-view-track/", coords: { lat: -43.795, lng: 170.105 } },
         { time: "~12:45 PM", activity: "Lunch at The Hermitage café or Mt Cook Village" },
         { time: "~1:45 PM",  activity: "Explore Mt Cook Village — coffee at The Hermitage with a direct face-on view of Aoraki, browse the Alpine Visitor Centre" },
-        { time: "~3:00 PM",  activity: "Drive to Twizel (~1 hr) — check in, dinner" }
+        { time: "~2:30 PM",  activity: "Optional: Kea Point Track — relaxed 1.5 hr return walk to a glacial lake platform with Mt Cook towering above. Flat, well-formed path.", link: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/tracks/kea-point-track/", coords: { lat: -43.735, lng: 170.096 } },
+        { time: "~4:00 PM",  activity: "Drive to Twizel (~1 hr) — check in" },
+        { time: "~5:00 PM",  activity: "Optional: Kayaking at Lake Ruataniwha (~$20/hr hire from Ruataniwha Rides) or free lakeside walk", coords: { lat: -44.262, lng: 170.095 } },
+        { time: "~7:00 PM",  activity: "Dinner in Twizel" }
       ],
       notes: "⚠️ Hooker Valley Track is CLOSED until late July/August 2026 — replaced with two easy walks: Tasman Glacier Lake (icebergs, flat path) and Kea Point (glacier lake platform, relaxed 1.5 hrs). Both are beautiful and low effort. Lake Pukaki is stunning at any time of day — the turquoise glacial colour doesn't depend on sunrise."
     },
