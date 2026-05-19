@@ -203,17 +203,19 @@ const ITINERARY = {
       day: 6,
       date: "May 28",
       weekday: "Thursday",
-      title: "Skyline + Moke Lake",
+      title: "Arrowtown + Tennis + Onsen",
       overnight: "Queenstown",
-      tags: ["Queenstown Day"],
+      tags: ["Autumn Colours", "📱 TikTok Trending", "Book Onsen in advance"],
       schedule: [
-        { time: "9:30 AM", activity: "Skyline Queenstown — gondola up Ben Lomond, luge rides, panoramic views of the Remarkables", link: "https://www.skyline.co.nz/en/queenstown/", coords: { lat: -45.028, lng: 168.668 } },
-        { time: "~11:30 AM", activity: "Lunch in Queenstown" },
-        { time: "~12:30 PM",  activity: "Drive to Moke Lake (~25–30 min, last section gravel road, standard car fine)" },
-        { time: "~1:00 PM",  activity: "Moke Lake — peaceful alpine lake, walk around the shore (~1.5 hrs)", coords: { lat: -45.089, lng: 168.785 } },
-        { time: "~3:00 PM",  activity: "Return to Queenstown — dinner, relax" }
+        { time: "9:30 AM", activity: "Drive to Arrowtown (~20 min from Queenstown) — peak autumn foliage in late May" },
+        { time: "~10:00 AM", activity: "Arrowtown: Arrow River walk, Chinese Settlement ruins, old stone main street — allow 2 hrs", link: "https://www.arrowtown.com", coords: { lat: -44.939, lng: 168.830 } },
+        { time: "~12:00 PM",  activity: "Lunch in Arrowtown (The Fork & Tap or Provisions café)" },
+        { time: "~1:00 PM",  activity: "Return to Queenstown — tennis court stop (~1.5 km southwest of town centre)", coords: { lat: -45.0374, lng: 168.6446 } },
+        { time: "~2:30 PM",  activity: "Queenstown Tennis Club — 4 hard courts in Queenstown Gardens, mountain & lake views", coords: { lat: -45.040, lng: 168.663 } },
+        { time: "~5:00 PM",  activity: "Freshen up, dinner in Queenstown" },
+        { time: "6:15 PM",   activity: "Onsen Hot Pools at Arthurs Point (~10 min from town) — private cedar hot tub, mountain views ⭐ booked slot", link: "https://www.onsen.co.nz", coords: { lat: -45.011, lng: 168.716 } }
       ],
-      notes: null
+      notes: "⚠️ Book Onsen Hot Pools well in advance at onsen.co.nz — only a handful of private baths, fills up fast. Late May is the best time to visit Arrowtown — the autumn colours along the Arrow River are TikTok-famous and genuinely stunning."
     },
     {
       day: 7,
@@ -235,18 +237,17 @@ const ITINERARY = {
       day: 8,
       date: "May 30",
       weekday: "Saturday",
-      title: "Arrowtown + Tennis + Onsen",
+      title: "Skyline + Moke Lake",
       overnight: "Queenstown",
-      tags: ["Autumn Colours", "📱 TikTok Trending", "Book Onsen in advance"],
+      tags: ["Queenstown Day"],
       schedule: [
-        { time: "9:30 AM", activity: "Drive to Arrowtown (~20 min from Queenstown) — peak autumn foliage in late May" },
-        { time: "~10:00 AM", activity: "Arrowtown: Arrow River walk, Chinese Settlement ruins, old stone main street — allow 2 hrs", link: "https://www.arrowtown.com", coords: { lat: -44.939, lng: 168.830 } },
-        { time: "~12:00 PM",  activity: "Lunch in Arrowtown (The Fork & Tap or Provisions café)" },
-        { time: "~1:00 PM",  activity: "Return to Queenstown — tennis court stop (~1.5 km southwest of town centre)", coords: { lat: -45.0374, lng: 168.6446 } },
-        { time: "~2:30 PM",  activity: "Queenstown Tennis Club — 4 hard courts in Queenstown Gardens, mountain & lake views", coords: { lat: -45.040, lng: 168.663 } },
-        { time: "~6:00 PM",  activity: "Onsen Hot Pools at Arthurs Point (~10 min from town) — private cedar hot tub, mountain views", link: "https://www.onsen.co.nz", coords: { lat: -45.011, lng: 168.716 } }
+        { time: "9:30 AM", activity: "Skyline Queenstown — gondola up Ben Lomond, luge rides, panoramic views of the Remarkables", link: "https://www.skyline.co.nz/en/queenstown/", coords: { lat: -45.028, lng: 168.668 } },
+        { time: "~11:30 AM", activity: "Lunch in Queenstown" },
+        { time: "~12:30 PM",  activity: "Drive to Moke Lake (~25–30 min, last section gravel road, standard car fine)" },
+        { time: "~1:00 PM",  activity: "Moke Lake — peaceful alpine lake, walk around the shore (~1.5 hrs)", coords: { lat: -45.089, lng: 168.785 } },
+        { time: "~3:00 PM",  activity: "Return to Queenstown — dinner, relax" }
       ],
-      notes: "⚠️ Book Onsen Hot Pools well in advance at onsen.co.nz — only a handful of private baths, fills up fast. Late May is the best time to visit Arrowtown — the autumn colours along the Arrow River are TikTok-famous and genuinely stunning."
+      notes: null
     },
     {
       day: 9,
