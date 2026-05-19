@@ -190,7 +190,7 @@ const ITINERARY = {
       overnight: "Queenstown",
       tags: ["🌙 Hari Raya Haji", "Book Onsen in advance"],
       schedule: [
-        { time: "Morning",   activity: "Eid al-Adha prayer — at hotel or nearest prayer space in Queenstown" },
+        { time: "Morning",   activity: "Eid al-Adha prayer — Arrowtown (~20 min drive from Queenstown) 🕌", link: "https://maps.app.goo.gl/RbxDbeXUFwDUePAC9?g_st=ic" },
         { time: "9:30 AM",  activity: "Tennis court stop (~1.5 km southwest of town centre)", coords: { lat: -45.0374, lng: 168.6446 } },
         { time: "~11:00 AM", activity: "Queenstown Tennis Club — 4 hard courts in Queenstown Gardens, mountain & lake views", coords: { lat: -45.040, lng: 168.663 } },
         { time: "~12:30 PM", activity: "Light snack before Onsen" },
@@ -199,7 +199,7 @@ const ITINERARY = {
         { time: "~3:30 PM",  activity: "Patagonia Chocolates — artisan ice cream & hot chocolate on the waterfront", link: "https://www.patagoniaicecream.co.nz", coords: { lat: -45.031, lng: 168.661 } },
         { time: "~6:00 PM",  activity: "Hari Raya Haji dinner — celebrate at a halal-friendly restaurant in Queenstown 🎉" }
       ],
-      notes: "🌙 Hari Raya Haji (Eid al-Adha) — 28 May 2026. No mosque in Queenstown; pray at your hotel or find a quiet outdoor space. Halal food options: Turkish restaurants in the Queenstown town centre. ⚠️ Onsen booking was for May 27 — rebook for 1 PM on May 28."
+      notes: "🌙 Hari Raya Haji (Eid al-Adha) — 28 May 2026. Prayer location found in Arrowtown (~20 min drive). Halal food options: Turkish restaurants in the Queenstown town centre. ⚠️ Onsen booking was for May 27 — rebook for 1 PM on May 28."
     },
     {
       day: 5,
