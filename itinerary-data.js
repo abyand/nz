@@ -87,16 +87,16 @@ const ITINERARY = {
     { name: "Lindis Pass",            day: 3  },
     { name: "Lake Hāwea",             day: 5  },
     { name: "Skyline Queenstown",     day: 6  },
-    { name: "Onsen Hot Pools",        day: 8  },
+    { name: "Onsen Hot Pools",        day: 6  },
     { name: "Fergburger",             day: 5  },
-    { name: "Queenstown Tennis Club", day: 8  }
+    { name: "Queenstown Tennis Club", day: 6  }
   ],
 
   // TikTok-trending additions — fit the existing route with no detours
   trendingPlaces: [
     { name: "Lake Tekapo",         day: 1, why: "Most viral NZ spot on TikTok — Church of the Good Shepherd, turquoise lake, Dark Sky Reserve. On the road from Christchurch to Twizel." },
     { name: "Blue Pools Makarora", day: 4, why: "Trending for glacier-blue water & swing bridge. On the route to Rob Roy from Wanaka — easy morning stop." },
-    { name: "Arrowtown",           day: 8, why: "Peak autumn colours in late May — golden trees, gold-rush village, Arrow River. Only 20 min from Queenstown." },
+    { name: "Arrowtown",           day: 5, why: "Peak autumn colours in late May — golden trees, gold-rush village, Arrow River. Only 20 min from Queenstown." },
     { name: "Omarama Clay Cliffs", day: 3, why: "Going viral for its otherworldly white/grey clay canyon walls — looks like the moon but sits right off SH8 between Twizel and Wanaka. Easy 2 km return walk, free entry." },
     { name: "Deer Park Heights",   day: 9, why: "TikTok obsession for highland cows and sweeping panoramic views over Queenstown — 286K+ views on a single video. Drive-up wildlife park, just 10 min above town. Bring $2 coins for animal feed." },
     { name: "Shotover Jet",        day: 7,  why: "Queenstown's most iconic adrenaline activity going viral again — 25-min jet boat ride through the narrow Shotover Canyon gorge. 360° spins, sheer cliffs, pure adrenaline. Book ahead at shotoverjet.com." },
@@ -183,9 +183,9 @@ const ITINERARY = {
       notes: "⚠️ ROAD WARNING: The access road to Raspberry Creek carpark is 30 km of gravel with multiple creek/ford crossings. After rain these fords can flood and become impassable for standard rental cars — some travellers have had to turn back entirely. Check conditions the morning of and confirm your rental car covers gravel roads. If the road is closed, Aspiring Helicopters (search 'Aspiring Helicopters Wanaka') flies scenic tours over the Rob Roy / Matukituki Valley as an alternative. Also check DOC for late May snow/ice on the track itself. Bring warm layers."
     },
     {
-      day: 5,
-      date: "May 27",
-      weekday: "Wednesday",
+      day: 6,
+      date: "May 28",
+      weekday: "Thursday",
       title: "Hari Raya Haji + Tennis + Onsen",
       overnight: "Queenstown",
       tags: ["🌙 Hari Raya Haji", "Book Onsen in advance"],
@@ -199,12 +199,12 @@ const ITINERARY = {
         { time: "~3:30 PM",  activity: "Patagonia Chocolates — artisan ice cream & hot chocolate on the waterfront", link: "https://www.patagoniaicecream.co.nz", coords: { lat: -45.031, lng: 168.661 } },
         { time: "~6:00 PM",  activity: "Hari Raya Haji dinner — celebrate at a halal-friendly restaurant in Queenstown 🎉" }
       ],
-      notes: "🌙 Hari Raya Haji (Eid al-Adha) — 27 May 2026. No mosque in Queenstown; pray at your hotel or find a quiet outdoor space. Halal food options: Turkish restaurants in the Queenstown town centre. ✅ Onsen Hot Pools booked at 1 PM on May 27."
+      notes: "🌙 Hari Raya Haji (Eid al-Adha) — 28 May 2026. No mosque in Queenstown; pray at your hotel or find a quiet outdoor space. Halal food options: Turkish restaurants in the Queenstown town centre. ⚠️ Onsen booking was for May 27 — rebook for 1 PM on May 28."
     },
     {
-      day: 6,
-      date: "May 28",
-      weekday: "Thursday",
+      day: 5,
+      date: "May 27",
+      weekday: "Wednesday",
       title: "Arrowtown",
       overnight: "Queenstown",
       tags: ["Autumn Colours", "📱 TikTok Trending"],
