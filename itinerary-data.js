@@ -242,7 +242,8 @@ const ITINERARY = {
         { time: "9:30 AM", activity: "Drive to Arrowtown (~20 min from Queenstown) — peak autumn foliage in late May" },
         { time: "~10:00 AM", activity: "Arrowtown: Arrow River walk, Chinese Settlement ruins, old stone main street — allow 2 hrs", link: "https://www.arrowtown.com", coords: { lat: -44.939, lng: 168.830 } },
         { time: "~12:00 PM",  activity: "Lunch in Arrowtown (The Fork & Tap or Provisions café)" },
-        { time: "~1:00 PM",  activity: "Return to Queenstown — Queenstown Tennis Club", coords: { lat: -45.040, lng: 168.663 } },
+        { time: "~1:00 PM",  activity: "Return to Queenstown — tennis court stop (~1.5 km southwest of town centre)", coords: { lat: -45.0374, lng: 168.6446 } },
+        { time: "~2:30 PM",  activity: "Queenstown Tennis Club — 4 hard courts in Queenstown Gardens, mountain & lake views", coords: { lat: -45.040, lng: 168.663 } },
         { time: "~6:00 PM",  activity: "Onsen Hot Pools at Arthurs Point (~10 min from town) — private cedar hot tub, mountain views", link: "https://www.onsen.co.nz", coords: { lat: -45.011, lng: 168.716 } }
       ],
       notes: "⚠️ Book Onsen Hot Pools well in advance at onsen.co.nz — only a handful of private baths, fills up fast. Late May is the best time to visit Arrowtown — the autumn colours along the Arrow River are TikTok-famous and genuinely stunning."
