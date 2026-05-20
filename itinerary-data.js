@@ -183,6 +183,23 @@ const ITINERARY = {
       notes: "⚠️ ROAD WARNING: The access road to Raspberry Creek carpark is 30 km of gravel with multiple creek/ford crossings. After rain these fords can flood and become impassable for standard rental cars — some travellers have had to turn back entirely. Check conditions the morning of and confirm your rental car covers gravel roads. If the road is closed, Aspiring Helicopters (search 'Aspiring Helicopters Wanaka') flies scenic tours over the Rob Roy / Matukituki Valley as an alternative. Also check DOC for late May snow/ice on the track itself. Bring warm layers."
     },
     {
+      day: 5,
+      date: "May 27",
+      weekday: "Wednesday",
+      title: "Arrowtown",
+      overnight: "Queenstown",
+      tags: ["Autumn Colours", "📱 TikTok Trending"],
+      schedule: [
+        { time: "9:30 AM",  activity: "Drive to Arrowtown (~20 min from Queenstown) — peak autumn foliage in late May" },
+        { time: "~10:00 AM", activity: "Arrowtown: Arrow River walk, Chinese Settlement ruins, old stone main street — allow 2 hrs", link: "https://www.arrowtown.com", coords: { lat: -44.939, lng: 168.830 } },
+        { time: "~12:00 PM", activity: "Lunch in Arrowtown (The Fork & Tap or Provisions café)" },
+        { time: "~1:30 PM",  activity: "Return to Queenstown — afternoon free, explore town, lakefront" },
+        { time: "~3:30 PM",  activity: "Fergburger — expect a queue, go between 2–4 PM to avoid the worst of it", coords: { lat: -45.030, lng: 168.661 } },
+        { time: "~6:00 PM",  activity: "Dinner in Queenstown" }
+      ],
+      notes: "Late May is the best time to visit Arrowtown — the autumn colours along the Arrow River are TikTok-famous and genuinely stunning."
+    },
+    {
       day: 6,
       date: "May 28",
       weekday: "Thursday",
@@ -200,23 +217,6 @@ const ITINERARY = {
         { time: "~6:00 PM",  activity: "Hari Raya Haji dinner — celebrate at a halal-friendly restaurant in Queenstown 🎉" }
       ],
       notes: "🌙 Hari Raya Haji (Eid al-Adha) — 28 May 2026. Prayer location found in Arrowtown (~20 min drive). Halal food options: Turkish restaurants in the Queenstown town centre. ⚠️ Onsen booking was for May 27 — rebook for 1 PM on May 28."
-    },
-    {
-      day: 5,
-      date: "May 27",
-      weekday: "Wednesday",
-      title: "Arrowtown",
-      overnight: "Queenstown",
-      tags: ["Autumn Colours", "📱 TikTok Trending"],
-      schedule: [
-        { time: "9:30 AM",  activity: "Drive to Arrowtown (~20 min from Queenstown) — peak autumn foliage in late May" },
-        { time: "~10:00 AM", activity: "Arrowtown: Arrow River walk, Chinese Settlement ruins, old stone main street — allow 2 hrs", link: "https://www.arrowtown.com", coords: { lat: -44.939, lng: 168.830 } },
-        { time: "~12:00 PM", activity: "Lunch in Arrowtown (The Fork & Tap or Provisions café)" },
-        { time: "~1:30 PM",  activity: "Return to Queenstown — afternoon free, explore town, lakefront" },
-        { time: "~3:30 PM",  activity: "Fergburger — expect a queue, go between 2–4 PM to avoid the worst of it", coords: { lat: -45.030, lng: 168.661 } },
-        { time: "~6:00 PM",  activity: "Dinner in Queenstown" }
-      ],
-      notes: "Late May is the best time to visit Arrowtown — the autumn colours along the Arrow River are TikTok-famous and genuinely stunning."
     },
     {
       day: 7,
