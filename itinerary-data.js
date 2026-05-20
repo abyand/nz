@@ -18,43 +18,43 @@ const ITINERARY = {
   bases: [
     {
       name:      "Lake Tekapo",
-      accomName: "Lake Tekapo Lodge",
+      accomName: "Sky Lodge",
       nights:    1,
       dates:     "May 23–24",
       days:      [1],
       address:   "Lake Tekapo, New Zealand",
       coords:    { lat: -44.005, lng: 170.483 },
-      link:      "https://placeholder.com"
+      link:      "https://maps.app.goo.gl/kRjWGEUq7t3uncxt7?g_st=ic"
     },
     {
       name:      "Twizel",
-      accomName: "Mackenzie Country Inn",
+      accomName: "The Dales",
       nights:    1,
       dates:     "May 24–25",
       days:      [2],
       address:   "Twizel, New Zealand",
       coords:    { lat: -44.259, lng: 170.103 },
-      link:      "https://placeholder.com"
+      link:      "https://maps.app.goo.gl/S2bCJewczJ9V6RhW6?g_st=ic"
     },
     {
       name:      "Wanaka",
-      accomName: "Wanaka Haven Lodge",
+      accomName: "Clearview",
       nights:    1,
       dates:     "May 25–26",
       days:      [3],
       address:   "Wanaka, New Zealand",
       coords:    { lat: -44.700, lng: 169.136 },
-      link:      "https://placeholder.com"
+      link:      "https://maps.app.goo.gl/9zUgThAmzLN2Bb13A?g_st=ic"
     },
     {
       name:      "Queenstown",
-      accomName: "Queenstown Central Hotel",
+      accomName: "Melbourne Lodge Queenstown",
       nights:    5,
       dates:     "May 26–31",
       days:      [4, 5, 6, 7, 8],
       address:   "Queenstown, New Zealand",
       coords:    { lat: -45.031, lng: 168.663 },
-      link:      "https://placeholder.com"
+      link:      "https://maps.app.goo.gl/afXY1W4Y7wxp3mce9?g_st=ic"
     },
     {
       name:      "Te Anau",
@@ -87,16 +87,16 @@ const ITINERARY = {
     { name: "Lindis Pass",            day: 3  },
     { name: "Lake Hāwea",             day: 5  },
     { name: "Skyline Queenstown",     day: 6  },
-    { name: "Onsen Hot Pools",        day: 6  },
-    { name: "Fergburger",             day: 5  },
-    { name: "Queenstown Tennis Club", day: 6  }
+    { name: "Onsen Hot Pools",        day: 5  },
+    { name: "Fergburger",             day: 6  },
+    { name: "Queenstown Tennis Club", day: 5  }
   ],
 
   // TikTok-trending additions — fit the existing route with no detours
   trendingPlaces: [
     { name: "Lake Tekapo",         day: 1, why: "Most viral NZ spot on TikTok — Church of the Good Shepherd, turquoise lake, Dark Sky Reserve. On the road from Christchurch to Twizel." },
     { name: "Blue Pools Makarora", day: 4, why: "Trending for glacier-blue water & swing bridge. On the route to Rob Roy from Wanaka — easy morning stop." },
-    { name: "Arrowtown",           day: 5, why: "Peak autumn colours in late May — golden trees, gold-rush village, Arrow River. Only 20 min from Queenstown." },
+    { name: "Arrowtown",           day: 6, why: "Peak autumn colours in late May — golden trees, gold-rush village, Arrow River. Only 20 min from Queenstown." },
     { name: "Omarama Clay Cliffs", day: 3, why: "Going viral for its otherworldly white/grey clay canyon walls — looks like the moon but sits right off SH8 between Twizel and Wanaka. Easy 2 km return walk, free entry." },
     { name: "Deer Park Heights",   day: 9, why: "TikTok obsession for highland cows and sweeping panoramic views over Queenstown — 286K+ views on a single video. Drive-up wildlife park, just 10 min above town. Bring $2 coins for animal feed." },
     { name: "Shotover Jet",        day: 7,  why: "Queenstown's most iconic adrenaline activity going viral again — 25-min jet boat ride through the narrow Shotover Canyon gorge. 360° spins, sheer cliffs, pure adrenaline. Book ahead at shotoverjet.com." },
@@ -186,37 +186,36 @@ const ITINERARY = {
       day: 5,
       date: "May 27",
       weekday: "Wednesday",
-      title: "Arrowtown",
+      title: "Tennis + Onsen + Free Afternoon",
       overnight: "Queenstown",
-      tags: ["Autumn Colours", "📱 TikTok Trending"],
+      tags: ["Book Onsen in advance"],
       schedule: [
-        { time: "9:30 AM",  activity: "Drive to Arrowtown (~20 min from Queenstown) — peak autumn foliage in late May" },
-        { time: "~10:00 AM", activity: "Arrowtown: Arrow River walk, Chinese Settlement ruins, old stone main street — allow 2 hrs", link: "https://www.arrowtown.com", coords: { lat: -44.939, lng: 168.830 } },
-        { time: "~12:00 PM", activity: "Lunch in Arrowtown (The Fork & Tap or Provisions café)" },
-        { time: "~1:30 PM",  activity: "Return to Queenstown — afternoon free, explore town, lakefront" },
-        { time: "~3:30 PM",  activity: "Fergburger — expect a queue, go between 2–4 PM to avoid the worst of it", coords: { lat: -45.030, lng: 168.661 } },
+        { time: "9:30 AM",  activity: "Tennis court stop (~1.5 km southwest of town centre)", coords: { lat: -45.0374, lng: 168.6446 } },
+        { time: "~11:00 AM", activity: "Queenstown Tennis Club — 4 hard courts in Queenstown Gardens, mountain & lake views", coords: { lat: -45.040, lng: 168.663 } },
+        { time: "~12:30 PM", activity: "Light snack before Onsen" },
+        { time: "1:00 PM",   activity: "Onsen Hot Pools at Arthurs Point (~10 min from town) — private cedar hot tub, mountain & gorge views ✅ Booked", link: "https://www.onsen.co.nz", coords: { lat: -45.011, lng: 168.716 } },
+        { time: "~2:15 PM",  activity: "Free afternoon — Queenstown waterfront stroll, explore town, shopping", coords: { lat: -45.031, lng: 168.662 } },
+        { time: "~3:30 PM",  activity: "Patagonia Chocolates — artisan ice cream & hot chocolate on the waterfront", link: "https://www.patagoniaicecream.co.nz", coords: { lat: -45.031, lng: 168.661 } },
         { time: "~6:00 PM",  activity: "Dinner in Queenstown" }
       ],
-      notes: "Late May is the best time to visit Arrowtown — the autumn colours along the Arrow River are TikTok-famous and genuinely stunning."
+      notes: "⚠️ Onsen booking was originally for May 27 — confirm booking is for this date."
     },
     {
       day: 6,
       date: "May 28",
       weekday: "Thursday",
-      title: "Hari Raya Haji + Tennis + Onsen",
+      title: "Hari Raya Haji + Arrowtown",
       overnight: "Queenstown",
-      tags: ["🌙 Hari Raya Haji", "Book Onsen in advance"],
+      tags: ["🌙 Hari Raya Haji", "Autumn Colours", "📱 TikTok Trending"],
       schedule: [
         { time: "Morning",   activity: "Eid al-Adha prayer — Arrowtown (~20 min drive from Queenstown) 🕌", link: "https://maps.app.goo.gl/RbxDbeXUFwDUePAC9?g_st=ic" },
-        { time: "9:30 AM",  activity: "Tennis court stop (~1.5 km southwest of town centre)", coords: { lat: -45.0374, lng: 168.6446 } },
-        { time: "~11:00 AM", activity: "Queenstown Tennis Club — 4 hard courts in Queenstown Gardens, mountain & lake views", coords: { lat: -45.040, lng: 168.663 } },
-        { time: "~12:30 PM", activity: "Light snack before Onsen" },
-        { time: "1:00 PM",   activity: "Onsen Hot Pools at Arthurs Point (~10 min from town) — private cedar hot tub, mountain & gorge views ✅ Booked", link: "https://www.onsen.co.nz", coords: { lat: -45.011, lng: 168.716 } },
-        { time: "~2:15 PM",  activity: "Queenstown waterfront stroll, explore town", coords: { lat: -45.031, lng: 168.662 } },
-        { time: "~3:30 PM",  activity: "Patagonia Chocolates — artisan ice cream & hot chocolate on the waterfront", link: "https://www.patagoniaicecream.co.nz", coords: { lat: -45.031, lng: 168.661 } },
+        { time: "~10:00 AM", activity: "Arrowtown: Arrow River walk, Chinese Settlement ruins, old stone main street — allow 2 hrs", link: "https://www.arrowtown.com", coords: { lat: -44.939, lng: 168.830 } },
+        { time: "~12:00 PM", activity: "Lunch in Arrowtown (The Fork & Tap or Provisions café)" },
+        { time: "~1:30 PM",  activity: "Return to Queenstown — afternoon free, explore town, lakefront" },
+        { time: "~3:30 PM",  activity: "Fergburger — expect a queue, go between 2–4 PM to avoid the worst of it", coords: { lat: -45.030, lng: 168.661 } },
         { time: "~6:00 PM",  activity: "Hari Raya Haji dinner — celebrate at a halal-friendly restaurant in Queenstown 🎉" }
       ],
-      notes: "🌙 Hari Raya Haji (Eid al-Adha) — 28 May 2026. Prayer location found in Arrowtown (~20 min drive). Halal food options: Turkish restaurants in the Queenstown town centre. ⚠️ Onsen booking was for May 27 — rebook for 1 PM on May 28."
+      notes: "🌙 Hari Raya Haji (Eid al-Adha) — 28 May 2026. Prayer is in Arrowtown — stay on to explore after. Late May is peak autumn colour season along the Arrow River. Halal food options: Turkish restaurants in the Queenstown town centre."
     },
     {
       day: 7,
