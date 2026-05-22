@@ -117,9 +117,9 @@ const ITINERARY = {
         { time: "12:55 PM", activity: "Land at Christchurch Airport" },
         { time: "~2:00 PM", activity: "Collect luggage & pick up rental car" },
         { time: "~2:30 PM", activity: "Lunch in Christchurch, then depart south via SH1 → SH79" },
-        { time: "~4:30 PM", activity: "Arrive Lake Tekapo — check in, then Church of the Good Shepherd on the lakeshore, turquoise lake views, short lakefront walk", link: "https://www.churchofthegoodshepherd.org.nz", coords: { lat: -44.005, lng: 170.483 } },
+        { time: "~4:30 PM", activity: "Arrive Lake Tekapo — check in, then Church of the Good Shepherd on the lakeshore, turquoise lake views, short lakefront walk", link: "https://www.churchofthegoodshepherd.org.nz", tiktok: "https://www.tiktok.com/@megcooper8/video/7506041199917157654", coords: { lat: -44.005, lng: 170.483 } },
         { time: "~6:30 PM", activity: "Dinner in Tekapo village" },
-        { time: "~8:30 PM", activity: "Stargazing at the Mt John Observatory area — UNESCO Dark Sky Reserve, one of the best stargazing spots in the Southern Hemisphere", coords: { lat: -44.005, lng: 170.465 } }
+        { time: "~8:30 PM", activity: "Stargazing at the Mt John Observatory area — UNESCO Dark Sky Reserve, one of the best stargazing spots in the Southern Hemisphere", tiktok: "https://www.tiktok.com/@miso_soup005/video/7571099920644574482", coords: { lat: -44.005, lng: 170.465 } }
       ],
       notes: "📱 Lake Tekapo is one of the most viral NZ spots on TikTok — the Church of the Good Shepherd framed against the turquoise lake is unmissable. Staying the night unlocks the Dark Sky Reserve stargazing — late May skies are long and dark. Check the weather forecast; clear skies are magic here."
     },
@@ -132,11 +132,11 @@ const ITINERARY = {
       tags: ["⭐ Highlight", "Scenic Drive", "⚠️ Hooker Valley Closed"],
       schedule: [
         { time: "9:30 AM",   activity: "Relaxed breakfast in Tekapo, check out" },
-        { time: "~10:15 AM", activity: "Drive to Lake Pukaki eastern shore (~45 min) — turquoise glacial lake with Aoraki/Mt Cook backdrop, one of NZ's most iconic views", coords: { lat: -44.022, lng: 170.153 } },
+        { time: "~10:15 AM", activity: "Drive to Lake Pukaki eastern shore (~45 min) — turquoise glacial lake with Aoraki/Mt Cook backdrop, one of NZ's most iconic views", tiktok: "https://www.tiktok.com/@thomas_hunt_/video/7540939535220346134", coords: { lat: -44.022, lng: 170.153 } },
         { time: "~11:00 AM", activity: "Drive to Aoraki/Mt Cook National Park (~1 hr from Pukaki)" },
-        { time: "~12:00 PM", activity: "Tasman Glacier Lake — easy 20-min walk to a viewpoint where icebergs float in a milky-blue glacial lake. Flat path, jaw-dropping.", link: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/tracks/tasman-glacier-view-track/", coords: { lat: -43.795, lng: 170.105 } },
+        { time: "~12:00 PM", activity: "Tasman Glacier Lake — easy 20-min walk to a viewpoint where icebergs float in a milky-blue glacial lake. Flat path, jaw-dropping.", link: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/tracks/tasman-glacier-view-track/", tiktok: "https://www.tiktok.com/@wanidawnan/video/7536963364178693383", coords: { lat: -43.795, lng: 170.105 } },
         { time: "~12:45 PM", activity: "Lunch at The Hermitage café or Mt Cook Village" },
-        { time: "~1:45 PM",  activity: "Explore Mt Cook Village — coffee at The Hermitage with a direct face-on view of Aoraki, browse the Alpine Visitor Centre" },
+        { time: "~1:45 PM",  activity: "Explore Mt Cook Village — coffee at The Hermitage with a direct face-on view of Aoraki, browse the Alpine Visitor Centre", tiktok: "https://www.tiktok.com/@jainsonplanes/video/7442037629077441822" },
         { time: "~2:30 PM",  activity: "Optional: Kea Point Track — relaxed 1.5 hr return walk to a glacial lake platform with Mt Cook towering above. Flat, well-formed path.", link: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/things-to-do/tracks/kea-point-track/", coords: { lat: -43.735, lng: 170.096 } },
         { time: "~4:00 PM",  activity: "Drive to Twizel (~1 hr) — check in" },
         { time: "~5:00 PM",  activity: "Optional: Kayaking at Lake Ruataniwha (~$20/hr hire from Ruataniwha Rides) or free lakeside walk", coords: { lat: -44.262, lng: 170.095 } },
@@ -154,11 +154,11 @@ const ITINERARY = {
       schedule: [
         { time: "9:30 AM", activity: "Depart Twizel toward Wanaka" },
         { time: "~10:00 AM", activity: "Drive through Omarama (~30 min)" },
-        { time: "~10:15 AM", activity: "Omarama Clay Cliffs — alien-looking white clay canyon walls, 2 km return walk (~45 min). Free entry. 3 km off SH8, gravel road, standard car fine.", link: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/omarama-clay-cliffs/", coords: { lat: -44.493, lng: 170.007 } },
-        { time: "~11:15 AM", activity: "Stop at Lindis Pass summit (963 m) — golden tussock hills, great photo stop", coords: { lat: -44.574, lng: 169.643 } },
+        { time: "~10:15 AM", activity: "Omarama Clay Cliffs — alien-looking white clay canyon walls, 2 km return walk (~45 min). Free entry. 3 km off SH8, gravel road, standard car fine.", link: "https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/omarama-clay-cliffs/", tiktok: "https://www.tiktok.com/@jmango22/video/7598437113398381854", coords: { lat: -44.493, lng: 170.007 } },
+        { time: "~11:15 AM", activity: "Stop at Lindis Pass summit (963 m) — golden tussock hills, great photo stop", tiktok: "https://www.tiktok.com/@anna_mike_travels/video/7584736173822676257", coords: { lat: -44.574, lng: 169.643 } },
         { time: "~12:15 PM",  activity: "Arrive Wanaka — check in" },
-        { time: "Afternoon", activity: "Wanaka waterfront, That Wanaka Tree, Puzzling World", link: "https://www.puzzlingworld.co.nz", coords: { lat: -44.697, lng: 169.131 } },
-        { time: "~4:30 PM",  activity: "Drive to Lake Hāwea lookout (~15 min) — evening light", coords: { lat: -44.517, lng: 169.267 } },
+        { time: "Afternoon", activity: "Wanaka waterfront, That Wanaka Tree, Puzzling World", link: "https://www.puzzlingworld.co.nz", tiktok: "https://www.tiktok.com/@sophsmitthhh/video/7613603568515304726", coords: { lat: -44.697, lng: 169.131 } },
+        { time: "~4:30 PM",  activity: "Drive to Lake Hāwea lookout (~15 min) — evening light", tiktok: "https://www.tiktok.com/@explorinwithnic/video/7611397560024026390", coords: { lat: -44.517, lng: 169.267 } },
         { time: "~6:00 PM",  activity: "Dinner in Wanaka" }
       ],
       notes: null
